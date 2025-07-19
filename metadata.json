@@ -1,5 +1,6 @@
 {
   "name": "Mantap dan Keren Veo3 Prompt",
   "description": "An AI-powered application to generate and refine structured video prompts for Veo3 from text descriptions or images, featuring a sleek glassmorphism UI.",
-  "requestFramePermissions": []
+  "requestFramePermissions": [],
+  "prompt": ""
 }

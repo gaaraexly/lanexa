@@ -254,22 +254,24 @@ const PromptResult: React.FC<PromptResultProps> = ({ initialPrompt, onUsePrompt 
                 )}
             </div>
 
-            <div className="bg-white/30 backdrop-blur-lg rounded-xl border border-white/20 p-4">
-                <div className="flex justify-between items-center mb-4">
-                    <h3 className="font-bold text-lg text-purple-800">Prompt Terperinci (Bahasa Inggris)</h3>
-                    {!isLoading && detailedEngPrompt && (
-                        <button onClick={copyDetailedToClipboard} className="flex items-center justify-center gap-2 px-4 py-2 bg-green-500 text-white font-semibold rounded-lg hover:bg-green-600 transition text-sm">
-                            {detailedCopySuccess ? <CheckIcon className="w-5 h-5"/> : <CopyIcon className="w-5 h-5"/>}
-                            {detailedCopySuccess ? 'Tersalin!' : 'Salin Cuplikan'}
-                        </button>
+            {isPremiumLocked && (
+                <div className="bg-white/30 backdrop-blur-lg rounded-xl border border-white/20 p-4">
+                    <div className="flex justify-between items-center mb-4">
+                        <h3 className="font-bold text-lg text-purple-800">Prompt Terperinci (Bahasa Inggris)</h3>
+                        {!isLoading && detailedEngPrompt && (
+                            <button onClick={copyDetailedToClipboard} className="flex items-center justify-center gap-2 px-4 py-2 bg-green-500 text-white font-semibold rounded-lg hover:bg-green-600 transition text-sm">
+                                {detailedCopySuccess ? <CheckIcon className="w-5 h-5"/> : <CopyIcon className="w-5 h-5"/>}
+                                {detailedCopySuccess ? 'Tersalin!' : 'Salin Cuplikan'}
+                            </button>
+                        )}
+                    </div>
+                    {isLoading ? (
+                        <div className="flex justify-center items-center h-96"><Spinner /></div>
+                    ) : (
+                        renderDetailedSection()
                     )}
                 </div>
-                {isLoading ? (
-                    <div className="flex justify-center items-center h-96"><Spinner /></div>
-                ) : (
-                    renderDetailedSection()
-                )}
-            </div>
+            )}
         </div>
     );
 };
